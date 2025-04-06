@@ -1,374 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
-  <meta property="og:url" content="URL OF THE WEBSITE" />
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <title>SDSeg</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="description" content="3D-MetaConNet: Meta-learning for 3D Shape Classification and Segmentation.">
+  <meta property="og:title" content="3D-MetaConNet" />
+  <meta property="og:description" content="A novel meta-learning framework for 3D shape classification and segmentation." />
+  <meta property="og:url" content="https://yourusername.github.io/3D-MetaConNet/" />
+  <meta property="og:image" content="static/images/3dv21_3d_fig1.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D-MetaConNet</title>
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
 </head>
 
 <body>
-
-
   <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
-              Title of the paper</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://lin-tianyu.github.io/" target="_blank">Tianyu Lin</a><sup>1*</sup></span>
-              <!-- <span class="author-block">
-                <a target="_blank">Zhiguang Chen</a><sup>2</sup>,</span>
-              <span class="author-block">
-                <a href="https://github.com/zzzyzh" target="_blank">Zhonghao Yan</a><sup>3</sup>,</span>
-              <span class="author-block">
-                <a href="https://github.com/yuweijiang" target="_blank">Weijiang Yu</a><sup>2*</sup>,</span>
-              <span class="author-block">
-                <a target="_blank">Fudan Zheng</a><sup>2*</sup></span> -->
-            </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <sup>1</sup>Institution<br>
-                <!-- {<sup>1</sup>School of Biomedical Engineering, 
-                <sup>2</sup>School of Computer Science and Engineering}, Sun Yat-sen University<br>
-                <sup>3</sup>International School, Beijing University of Posts and Telecommunications -->
-              </span>
-              <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Author</small></span><br>
-              <span class="author-block" style="background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 0)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;"><b>Conference/Journal Name</b></span>
-            </div>
-
-
-            <div class="column has-text-centered">
-              <div class="publication-links">
-            <!-- ArXiv abstract Link -->
-            <span class="link-block">
-              <a href="https://arxiv.org/abs/2406.18361" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="ai ai-arxiv"></i>
-                </span>
-                <span>ArXiv</span>
-              </a>
-            </span>
-
-              <!-- Arxiv PDF link -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2406.18361.pdf" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Arxiv Paper</span>
-                </a>
-              </span>
-
-                <!-- Github link -->
-                <span class="link-block">
-                  <a href="https://github.com/lin-tianyu/Stable-Diffusion-Seg" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1">3D-MetaConNet: Meta-learning for 3D Shape Classification and Segmentation</h1>
+      <h2 class="subtitle is-4">Hao Huang, Xiang Li, Lingjing Wang, Yi Fang*</h2>
+      <p>NYU Multimedia and Visual Computing Lab · NYU Abu Dhabi · NYU Tandon</p>
+      <small><sup>*</sup>Corresponding author</small><br>
+      <span class="tag is-info is-medium">3DV 2021</span>
+      <div class="buttons is-centered mt-4">
+        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9665930" class="button is-dark is-rounded">
+          <span class="icon"><i class="fas fa-file-pdf"></i></span>
+          <span>PDF</span>
+        </a>
       </div>
     </div>
   </section>
 
-
-  <!-- Teaser-->
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <img src="static/images/framework-v2.jpg" alt="MY ALT TEXT" , width="700" />
-        <h4 class="subtitle has-text-centered">The overview of the proposed method.</h4>
-      </div>
+  <section class="section">
+    <div class="container has-text-centered">
+      <h2 class="title is-2" style="color:#6b6bff;">Overview</h2>
+      <figure>
+        <img src="static/images/3dv21_3d_fig1.png" alt="Framework comparison" width="800">
+        <figcaption class="subtitle has-text-centered mt-2">
+          Figure 1: Most supervised neural networks for 3D shape
+ learning, including but not limited to PointNet and
+ PointNet++, can be decomposed into a feature ex
+tractor and a classifier.
+        </figcaption>
+      </figure>
     </div>
   </section>
-  <!-- End teaser -->
 
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-2" style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
-            Highlights</h2>
-        </div>
-      </div>
+  <section class="section">
+    <div class="container content">
+      <h2 class="title is-2 has-text-centered" style="color:#6b6bff;">Abstract</h2>
       <p>
-        🌟 Highlights are the summary of the proposed work. They can be contributions in the paper or preferred key points.<br>
-        🌟 Point 2
-        
+         Supervised learning on 3D shapes are extensively stud
+ied by prior literature, among which PointNet [29] and
+ its variants PointNet++[31] are representatives. However,
+ these methods tackle 3D shape learning problems by train
+ing from scratch using a fixed learning algorithm over large
+ amounts of labeled data, potentially challenged by data and
+ computation bottlenecks. In the paper, we design a novel
+ model, under the framework of meta-learning, to learn 3D
+ shape representation. By training over multiple 3D tasks,
+ each of which is defined as a supervised learning problem,
+ our method can fast adapt to unseen tasks containing lim
+ited labeled data. Specifically, our model consists of a 3D
+meta-learner and a task-oriented 3D-learner, where the
+ 3D-meta-learner produces parameter initialization for the
+ 3D-learner after being trained over different tasks. With
+ adaptively initialized parameters, the 3D-learner can be
+ tuned rapidly in a few steps to achieve good performance on
+ novel tasks with a small amount of training data. To further
+ facilitate discriminative shape feature learning, we intro
+duce a novel task-aware feature adaptation module under
+ a contrastive learning scheme, in which all shapes in each
+ task are considered as a whole and task-oriented compact
+ features are learned. Therefore, we dub our model as 3D
+MetaConNet. Experiments on three public 3D datasets for
+ few-shot shape classification and segmentation demonstrate
+ that our method can learn compact and discriminative 3D
+ shape features efficiently and robustly in a fast adaptation
+ manner. Our method particularly outperforms the methods
+ without a meta-learning framework and is also superior to
+ existing meta-learning approaches.
       </p>
     </div>
   </section>
 
-  <section class="section hero">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-2" style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
-            Motivation</h2>
-        <h5 class="title is-5" style="text-align: center;">
-          Using a single sentence to summarize the motivation of the paper.
-        </h5>
+  <section class="section has-background-light">
+    <div class="container has-text-centered">
+      <h2 class="title is-2" style="color:#6b6bff;">Method</h2>
 
-        <div class="columns is-centered">
-        <!-- reenact. -->
-        <div class="column">
-          <div class="content">
-            <h4 class="title is-5" style="text-align: center;">🔒 Challenges</h4>
-            <p>
-            (1) blablabla<br>
-            (2) blablabla
-            </p>
-          </div>
-        </div>
-        <!--/ reenact -->
-        <!-- swap. -->
-        <div class="column">
-          <h4 class="title is-5" style="text-align: center;">🔑 Solutions</h4>
-          <div class="columns is-centered">
-            <div class="column content">
-              <p>
-              <!-- <br> -->
-            (1) blablabla<br>
-            (2) blablabla
-              </p>
-            </div>
-          </div>
-        </div>
-        <!--/ swap. -->
-      </div>
+      <figure>
+        <img src="static/images/3dv21_3d_fig2.png" alt="Noise Robustness" width="850">
+        <figcaption class="subtitle has-text-centered mt-2">
+          Figure 2: Figure 2: (Left) Conventional 3D shape learning model. (Right) Our proposed 3D meta network.
+        </figcaption>
+      </figure>
 
-            <div class="hero-body">
-              <img src="static/images/LatentRep.jpg" alt="MY ALT TEXT" , width="1000" />
-              <h4 class="subtitle has-text-centered"><b>Caption of the figure.</b></h4>
-              Detailed descriptions.
-            </div>
-        </div>
-      </div>
+      <br>
+
+      <figure>
+        <img src="static/images/3dv21_3d_fig3.png" alt="Few-shot results" width="850">
+        <figcaption class="subtitle has-text-centered mt-2">
+          Figure 3:  The pipeline of the proposed 3D-MetaConNet. 
+        </figcaption>
+      </figure>
+
+      <br>
+
+      <figure>
+        <img src="static/images/3dv21_3d_fig4.png" alt="Training procedure" width="850">
+        <figcaption class="subtitle has-text-centered mt-2">
+          Figure 4:  Meta-learning optimization workflow and agreement grouping strategy for the feature extractor and contrastive projector.
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-2" style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
-            Module 1</h2>
-            <h5 class="title is-5" style="text-align: center;">
-              Single sentence to summarize the first module of the paper.
-            </h5>
-            <div class="hero-body">
-              <img src="static/images/ReverseCurve.png" alt="MY ALT TEXT" , width="900" />
-              <h4 class="subtitle has-text-centered"><b>Caption of the figure.</b></h4>
-            </div>
-            <!-- <div class="hero-body">
-              <img src="static/images/ReverseProcess.jpeg" alt="MY ALT TEXT" , width="1000" />
-              <h4 class="subtitle has-text-centered">Visualization of the predicted probability maps in
-                reverse process.</h4>
-            </div> -->
-        </div>
-      </div>
-    </div>
+  <section class="section">
+    <div class="container has-text-centered">
+      <h2 class="title is-2" style="color:#6b6bff;">Results</h2>
 
-    <!-- Video carousel -->
-   <section class="hero is-small">
-   <div class="hero-body">
-     <div class="container">
-       <div id="results-carousel" class="carousel results-carousel">
-         <div class="item item1" style="text-align:center;">
-           <img src="static/images/ReverseProcess-1.png" alt="MY ALT TEXT" , width="700" />
-         </div>
-         <div class="item item2" style="text-align:center;">
-           <img src="static/images/ReverseProcess-2.png" alt="MY ALT TEXT" , width="700" />
-         </div>
-       </div>
-     </div>
-   </div>
-   <h4 class="subtitle has-text-centered"><b>Showing rolling images here.</b></h4>
- </section> 
-   <!-- End video carousel -->
-  </section>
+      <figure>
+        <img src="static/images/3dv21_3d_fig5.png" alt="Meta-learning structure" width="850">
+        <figcaption class="subtitle has-text-centered mt-2">
+          Figure 5: Qualitative results of part segmentation for
+ ShapeNetPart meta-test set. The top row is prediction and
+ the bottom row is ground-truth.
+        </figcaption>
+      </figure>
 
-  <section class="section hero">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-2" style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
-            Module 2</h2>
-            <h5 class="title is-5" style="text-align: center;">
-            Single sentence to summarize the second module of the paper.
-            </h5>
-            <p style="text-align: left;">
-              <b>👉 Key point 1</b>: bnlablabla.<br>
-              <b>👉 Key point 2</b>: blablabla.
+      <br>
 
-            </p>
-            <div class="hero-body">
-              <img src="static/images/StabilityEvaluationV4.jpeg" alt="MY ALT TEXT" , width="1000" />
-              <h2 class="subtitle has-text-centered"><b>Caption of the figure.</b></h2>
-            </div>
-        </div>
-      </div>
+      <figure>
+        <img src="static/images/3dv21_3d_fig6.png" alt="Few-shot classification overview" width="850">
+        <figcaption class="subtitle has-text-centered mt-2">
+          Figure 6: Accuracyofdifferentnoise levels. Noise level
+ standsforthestandarddeviationofaGaussiannoise.
+        </figcaption>
+      </figure>
+
     </div>
   </section>
 
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-2" style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
-            Other Qualitative Analysis</h2>
-            <div class="hero-body">
-              <img src="static/images/Conditioner.png" alt="MY ALT TEXT" , width="900" />
-              <h2 class="subtitle has-text-centered"><b>Caption of the figure.</b></h2>
-                  Detailed descriptions.
-            </div>
-        </div>
-      </div>
+  <section class="section" id="BibTeX">
+    <div class="container content">
+      <h2 class="title is-4">BibTeX</h2>
+<pre><code>
+  @inproceedings{huang20213d,
+  title={3D-MetaConNet: Meta-learning for 3D shape classification and segmentation},
+  author={Huang, Hao and Li, Xiang and Wang, Lingjing and Fang, Yi},
+  booktitle={2021 International Conference on 3D Vision (3DV)},
+  pages={982--991},
+  year={2021},
+  organization={IEEE}
+}
+</code></pre>
     </div>
   </section>
-
-
-  <!-- Video carousel -->
-  <!-- <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>  -->
-  <!-- End video carousel -->
-
-
-
-
-
-
-  <!-- Paper poster -->
-  <!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550"></iframe>
-      </div>
-    </div>
-  </section> -->
-  <!--End paper poster -->
-
-
-  <!--BibTex citation -->
-  <section class="section hero" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTex</h2>
-      <pre><code>
-        @inproceedings{lin2024stable,
-          title={Stable Diffusion Segmentation for Biomedical Images with Single-step Reverse Process},
-          author={Lin, Tianyu and Chen, Zhiguang and Yan, Zhonghao and Yu, Weijiang and Zheng, Fudan},
-          booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
-          year={2024},
-          organization={Springer}
-        }        
-      </code></pre>
-    </div>
-  </section>
-  <!--End BibTex citation -->
-
 
   <footer class="footer">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-
-            <p>
-              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                target="_blank">Academic Project Page Template</a> which was adopted from the <a
-                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              
-              <br> This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-
-          </div>
-        </div>
-      </div>
+    <div class="content has-text-centered">
+      <p>
+        Built with ❤️ using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.<br>
+        Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+      </p>
     </div>
   </footer>
-
-  <!-- Statcounter tracking code -->
-
-  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-  <!-- End of Statcounter Code -->
-
 </body>
 
 </html>
